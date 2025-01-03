@@ -1,0 +1,44 @@
+/******************************************************************************
+Programming Project #1
+Author: Williams 
+*******************************************************************************/
+#include <iostream>
+#include <stdio.h>
+#include <fstream>
+#include "table.h"
+
+using namespace std;
+int main()
+{
+    string method_choice = " ";
+    
+    cout << "\n       *** COMPUTER SCIENTISTS WHO LEFT A MARK ON HISTORY *** \n" << endl;
+    
+    Table showdata;
+    showdata.read();
+    
+    // // Loop for making the user choose a proper search method 
+    while ((method_choice != "1") && (method_choice != "2") && (method_choice != "3"))
+    {
+      cout << "Enter the method you want to use: \n" 
+         << "1. First name\n"
+         << "2. Last name\n"
+         << "3. Year\n";
+      cin >> method_choice;
+    }
+    
+    if (method_choice == "1") 
+    {
+     showdata.search_first_name();
+    }
+    else if(method_choice == "2") 
+    {
+     showdata.search_last_name();
+    }
+    else if(method_choice == "3")
+    {
+    showdata.search_year();
+    }
+    
+    return 0;
+}
